@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { sendGTMEvent } from "@next/third-parties/google"
 import { MessageCircle, Clock, Shield, Phone } from "lucide-react"
 
 export function ContactSection() {
@@ -9,6 +10,7 @@ export function ContactSection() {
   const whatsappMessage = "Olá! Gostaria de conhecer mais sobre o acompanhamento psicológico para ansiedade."
 
   const openWhatsApp = () => {
+    sendGTMEvent({ event: 'conversion_contact' })
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
     window.open(url, "_blank")
   }
@@ -37,12 +39,12 @@ export function ContactSection() {
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">Pronta para iniciar sua jornada?</h2>
           <p className="text-xl text-[#e5d9ce] max-w-3xl mx-auto">
-            Dê o primeiro passo em direção a uma vida mais equilibrada e plena. Entre em contato para conhecer mais
-            sobre o acompanhamento psicológico.
+            Dê o primeiro passo em direção a uma vida com menos ansiedade e mais leveza. <br /> Entre em contato para conhecer mais
+            sobre a terapia.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
             <Card className="border-0 shadow-2xl bg-white/95 backdrop-blur-sm">
               <CardContent className="p-8">
@@ -73,10 +75,10 @@ export function ContactSection() {
                 <Button
                   onClick={openWhatsApp}
                   size="lg"
-                  className="w-full mt-6 bg-green-600 hover:bg-green-700 text-white py-4 rounded-full text-lg font-semibold mb-6 flex items-center justify-center gap-3"
+                  className=" mt-6 w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-full text-lg font-semibold mb-6 flex items-center justify-center gap-3"
                 >
                   <MessageCircle className="w-6 h-6" />
-                  Conversar pelo WhatsApp
+                  Agendar pelo Whatsapp
                 </Button>
                 <div className="text-center text-[#7a5535] mb-4">
                   <div className="flex items-center justify-center gap-2 mb-2">
@@ -90,19 +92,17 @@ export function ContactSection() {
           </div>
 
           <div className="text-white">
-            <h3 className="text-3xl font-bold mb-8">Por que escolher a terapia online?</h3>
+            <h3 className="text-3xl font-bold mb-8">O que está incluso na terapia?</h3>
 
-            <div className="space-y-6">
+            <div className="space-y-2">
               <div className="flex items-start gap-4">
                 <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                   <span className="text-sm">✓</span>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg mb-2">Comodidade e Privacidade</h4>
-                  <p className="text-[#e5d9ce]">
-                    Realize suas sessões no conforto e segurança do seu ambiente familiar, sem necessidade de
-                    deslocamento.
-                  </p>
+                  <h4 className="font-semibold text-lg mb-2">
+                    Sessões semanais online com duração de <b>50 minutos</b>, realizadas nos dias e horários previamente combinados.
+                  </h4>
                 </div>
               </div>
 
@@ -111,10 +111,9 @@ export function ContactSection() {
                   <span className="text-sm">✓</span>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg mb-2">Flexibilidade de Horários</h4>
-                  <p className="text-[#e5d9ce]">
-                    Horários que se adaptam à sua rotina, incluindo opções vespertinas e noturnas.
-                  </p>
+                  <h4 className="font-semibold text-lg mb-2">
+                    <b>Suporte via WhatsApp</b> para esclarecer dúvidas pontuais.
+                  </h4>
                 </div>
               </div>
 
@@ -123,30 +122,71 @@ export function ContactSection() {
                   <span className="text-sm">✓</span>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg mb-2">Eficácia Comprovada</h4>
-                  <p className="text-[#e5d9ce]">
-                    Pesquisas científicas demonstram que a terapia online apresenta resultados equivalentes à presencial
-                    para o tratamento da ansiedade.
-                  </p>
+                  <h4 className="font-semibold text-lg mb-2">
+                    <b>Sessão de feedback</b> personalizada para monitorar seu progresso.
+                  </h4>
+                </div>
+              </div>
+
+              {/*       <div className="flex items-start gap-4">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-sm">✓</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg mb-2">
+                    Acesso a uma <b>playlist</b> exclusiva de <b>Regulação Emocional</b> no Spotify.
+                  </h4>
+                </div>
+              </div> */}
+
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-sm">✓</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg mb-2">
+                    <b>Materiais digitais</b> e exercícios terapêuticos disponibilizados para você.
+                  </h4>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-sm">✓</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg mb-2">
+                    Participação no <b>Close Friends</b> exclusivo para pacientes.
+                  </h4>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-sm">✓</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg mb-2">
+                    <b>Jogos terapêuticos</b> para desenvolver e fortalecer habilidades emocionais.
+                  </h4>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-sm">✓</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg mb-2">
+                    <b>Plano de tratamento personalizado</b> de acordo com suas necessidades.
+                  </h4>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 p-6 bg-white/10 rounded-lg backdrop-blur-sm">
-              <h4 className="font-bold text-xl mb-3">Dê o primeiro passo</h4>
-              <p className="text-[#e5d9ce] mb-4">
-                Cada jornada de autoconhecimento começa com uma decisão. Permita-se viver com mais leveza e equilíbrio
-                emocional.
-              </p>
-              <Button
-                onClick={openWhatsApp}
-                variant="outline"
-                className="border-white text-[#60452a] hover:bg-white hover:text-[#60452a] px-8 py-4 rounded-full text-lg font-semibold w-full"
-              >
-                Agendar Consulta
-              </Button>
-            </div>
+
           </div>
+
         </div>
       </div>
     </section>

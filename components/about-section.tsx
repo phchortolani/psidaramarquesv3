@@ -4,28 +4,29 @@ import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { GraduationCap, Award, Users, Heart, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { sendGTMEvent } from '@next/third-parties/google'
 
 export function AboutSection() {
   const credentials = [
     {
       icon: GraduationCap,
       title: "Formação Acadêmica",
-      description: "Graduação em Psicologia pela Universidade Paulista",
+      description: "Graduação em Psicologia pela Universidade Metodista de São Paulo",
     },
     {
       icon: Award,
       title: "Especializações",
-      description: "Psicanálise e Terapia Cognitivo-Comportamental (TCC)",
+      description: "Psicopatologia, TCC e Psicoterapia Baseada em Evidências",
     },
     {
       icon: Users,
       title: "Experiência Clínica",
-      description: "Mais de 6 anos atendendo mulheres com ansiedade",
+      description: `Mais de ${new Date().getFullYear() - 2019} anos atendendo mulheres com ansiedade`,
     },
     {
       icon: Heart,
-      title: "Abordagem Humanizada",
-      description: "Foco no acolhimento e desenvolvimento da autoestima",
+      title: "Atuação Ética e Acolhedora",
+      description: "Foco em segurança, escuta e respeito ao tempo de cada paciente",
     },
   ]
 
@@ -34,39 +35,37 @@ export function AboutSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#60452a] mb-6">Conheça sua terapeuta</h2>
-          <p className="text-xl text-[#404435] max-w-3xl mx-auto">
-            Uma profissional dedicada a ajudar mulheres a superarem a ansiedade e viverem com mais leveza
+          <p className="text-xl text-[#404435] max-w-4xl mx-auto">
+            Uma profissional baseada em evidências, com vivência real no tratamento da ansiedade
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
           <div className="order-2 lg:order-1">
-            <h3 className="text-3xl font-bold text-[#60452a] mb-6">Dara Macedo Marques</h3>
+            <h3 className="text-3xl font-bold text-[#60452a] mb-6">Dara M. Marques Hortolani</h3>
             <div className="text-[#7a5535] font-semibold mb-8">Psicóloga • CRP 06/144499</div>
 
             <div className="space-y-6 text-[#404435] leading-relaxed">
               <p>
-                <strong>Olá! Sou a Dara</strong>, psicóloga especializada em ansiedade há mais de 6 anos. Minha
-                missão é ajudar mulheres como você a superarem a ansiedade e desenvolverem uma relação mais saudável
-                consigo mesmas.
+                Olá! Sou a Dara, psicóloga formada em psicopatologia, com mais de {new Date().getFullYear() - 2019} anos de experiência clínica. Atualmente,
+                estou em especialização em Terapia Cognitivo-Comportamental (TCC) e Psicoterapia Baseada em Evidências.
               </p>
-
               <p>
-                Durante minha trajetória profissional, percebi que a ansiedade afeta as mulheres de forma única,
-                especialmente considerando as pressões sociais, profissionais e familiares que enfrentamos. Por isso,
-                desenvolvi uma abordagem específica que considera essas particularidades.
+                Minha atuação é pautada em abordagens cientificamente validadas, com ênfase na TCC — reconhecida por sua eficácia no tratamento da ansiedade.
               </p>
-
               <p>
-                Acredito que cada mulher tem dentro de si a força necessária para superar seus desafios. Meu papel é
-                oferecer as ferramentas, o acolhimento e o suporte necessários para que você descubra essa força e a
-                utilize em seu favor.
+                <strong>Falo com propriedade sobre ansiedade porque também vivi esse processo.</strong> <br>
+                </br>Já fui uma pessoa muito ansiosa e só consegui transformar minha vida quando decidi buscar um tratamento baseado na ciência.
+                Vivia dominada pelos “e se”, evitando situações que me causavam desconforto — e, muitas vezes, nem conseguia reconhecer que estava ansiosa.
               </p>
-
+              <p>
+                Foi por meio do tratamento e do enfrentamento, e não tentando evitar ou controlar tudo, que comecei a construir uma relação mais saudável comigo mesma.
+                Aprendi que uma vida mais leve não depende do controle absoluto, mas da aceitação da realidade,
+                da tolerância às incertezas e da confiança em minha própria capacidade de lidar com elas.
+              </p>
               <div className="bg-[#e5d9ce]/50 p-6 rounded-lg">
                 <p className="font-semibold text-[#60452a] mb-2">
-                  "Meu compromisso é oferecer um espaço seguro, livre de julgamentos, onde você pode ser autêntica e
-                  trabalhar suas questões no seu próprio ritmo."
+                  Se você sente que chegou a hora de mudar isso, saiba que posso caminhar com você — com empatia, acolhimento e experiência de quem já trilhou esse caminho.
                 </p>
               </div>
             </div>
@@ -74,7 +73,7 @@ export function AboutSection() {
 
           <div className="order-1 lg:order-2 flex justify-center">
             <div className="relative">
-              <div className="w-80 h-96 lg:w-96 lg:h-[480px] rounded-2xl overflow-hidden shadow-2xl">
+              <div className="w-72 h-96 lg:w-96 lg:h-[480px] rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/land3.jpg?height=480&width=384"
                   alt="Dara Marques - Psicóloga focada em ansiedade"
@@ -85,7 +84,7 @@ export function AboutSection() {
               </div>
               <div className="absolute -bottom-6 -left-6 bg-[#60452a] text-white p-4 rounded-xl shadow-lg">
                 <div className="text-center">
-                  <div className="text-2xl font-bold">6+</div>
+                  <div className="text-2xl font-bold">{`${new Date().getFullYear() - 2019}+`}</div>
                   <div className="text-sm">Anos de experiência</div>
                 </div>
               </div>
@@ -110,16 +109,18 @@ export function AboutSection() {
         <div className="text-center mt-12">
           <Button
             onClick={() => {
+              sendGTMEvent({ event: 'conversion_about' })
               const whatsappNumber = "5511978493885"
               const whatsappMessage = "Olá! Gostaria de conhecer mais sobre o acompanhamento psicológico."
               const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
               window.open(url, "_blank")
+
             }}
             size="lg"
-            className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center gap-3 mx-auto"
+            className="bg-green-600 w-max hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center gap-3 mx-auto"
           >
             <MessageCircle className="w-5 h-5" />
-            Conversar pelo WhatsApp
+            Agendar pelo Whatsapp
           </Button>
         </div>
       </div>

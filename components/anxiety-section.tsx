@@ -93,7 +93,7 @@ export function AnxietySection() {
 
         <div>
           <h3 className="text-3xl font-bold text-[#60452a] text-center mb-12">
-           Como a ansiedade pode afetar a sua vida
+            Como a ansiedade pode afetar a sua vida
           </h3>
           <div className="grid md:grid-cols-3 gap-8">
             {impacts.map((impact, index) => (
@@ -118,7 +118,7 @@ export function AnxietySection() {
             size="lg"
             className="bg-[#60452a] hover:bg-[#7a5535] text-white px-8 py-4 rounded-full text-lg font-semibold"
           >
-            Agendar Primeira Consulta
+            Agendar pelo Whatsapp
           </Button>
         </div>
       </div>

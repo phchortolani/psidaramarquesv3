@@ -34,7 +34,7 @@ export function HeroSection() {
             {/* Imagem para mobile - aparece aqui */}
             <div className="flex justify-center lg:hidden mb-8 order-2">
               <div className="relative">
-                <div className="w-80 h-80 rounded-full overflow-hidden shadow-2xl">
+                <div className="w-60 h-60 rounded-full overflow-hidden shadow-2xl">
                   <Image
                     src="/psi3.png?height=320&width=320"
                     alt="Dara Marques - Psicóloga focada em ansiedade"

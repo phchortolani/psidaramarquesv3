@@ -74,9 +74,9 @@ export function Header() {
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Button
               onClick={() => scrollToSection("#contato")}
-              className="bg-[#60452a] hover:bg-[#7a5535] text-white px-6 py-2 rounded-full"
+              className="bg-green-600 w-full sm:w-max hover:bg-green-700 text-white px-6 py-2 rounded-full"
             >
-              Agendar Consulta
+              Agendar pelo Whatsapp
             </Button>
           </div>
         </div>
@@ -124,9 +124,9 @@ export function Header() {
                 <div className="py-6">
                   <Button
                     onClick={() => scrollToSection("#contato")}
-                    className="w-full bg-[#60452a] hover:bg-[#7a5535] text-white rounded-full"
+                    className="bg-green-600 w-full sm:w-max hover:bg-green-700  text-white rounded-full"
                   >
-                    Agendar Consulta
+                    Agendar pelo Whatsapp
                   </Button>
                 </div>
               </div>

@@ -1,5 +1,6 @@
 "use client"
 
+import { sendGTMEvent } from "@next/third-parties/google"
 import { MessageCircle } from "lucide-react"
 import { useState, useEffect } from "react"
 
@@ -17,6 +18,7 @@ export function WhatsAppFloat() {
   }, [])
 
   const openWhatsApp = () => {
+    sendGTMEvent({ event: 'conversion_btn_whatsapp' })
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
     window.open(url, "_blank")
   }
@@ -28,14 +30,14 @@ export function WhatsAppFloat() {
       <button
         onClick={openWhatsApp}
         className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group animate-bounce"
-        aria-label="Conversar pelo WhatsApp"
+        aria-label="Agendar pelo Whatsapp"
       >
         <MessageCircle className="w-6 h-6 group-hover:scale-110 transition-transform" />
       </button>
 
       {/* Tooltip */}
       <div className="absolute bottom-16 right-0 bg-gray-800 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-        Conversar pelo WhatsApp
+        Agendar pelo Whatsapp
         <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
       </div>
     </div>

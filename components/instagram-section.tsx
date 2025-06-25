@@ -51,7 +51,7 @@ export async function InstagramSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-[#60452a] mb-6">Últimos Posts</h2>
-          <p className="text-xl text-[#404435] max-w-3xl mx-auto">
+          <p className="text-xl text-[#404435] max-w-4xl mx-auto">
             Acompanhe conteúdos sobre bem-estar emocional, autoconhecimento e saúde mental
           </p>
         </div>

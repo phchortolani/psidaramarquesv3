@@ -2,30 +2,31 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Star, Quote, MessageCircle } from "lucide-react"
 import { Button } from "./ui/button"
+import { sendGTMEvent } from "@next/third-parties/google"
 
 export function TestimonialsSection() {
   const testimonials = [
     {
-      name: "Maria S.",
-      age: "32 anos",
+      name: "B. A.",
+      age: `${new Date().getFullYear() - 2003} anos`,
+      text: "Tudo tem sido uma ótima experiência. Uma profissional excelente, muito humana e empenhada em dar o seu melhor.",
+      rating: 5,
+      issue: "Ansiedade social",
+      location: "Piauí",
+    },
+    {
+      name: "A. A.",
+      age: `${new Date().getFullYear() - 1986} anos`,
       location: "São Paulo",
-      text: "Depois de meses sofrendo com ansiedade, encontrei na Dara uma profissional que realmente me entendeu. Hoje consigo dormir melhor e me sinto muito mais confiante.",
+      text: "Ótima profissional que sempre procura estar atualizada com novas técnicas terapeuticas para nos ajudar a lidar com todo stress... ansiedade que enfrentamos no nosso dia- dia. Recomendo a todos.",
       rating: 5,
       issue: "Ansiedade e insônia",
     },
     {
-      name: "Ana P.",
-      age: "28 anos",
-      location: "Rio de Janeiro",
-      text: "A terapia online foi perfeita para mim. Consegui fazer as sessões no conforto de casa e isso me ajudou a me abrir mais. Recomendo muito!",
-      rating: 5,
-      issue: "Ansiedade social",
-    },
-    {
-      name: "Carla M.",
-      age: "35 anos",
-      location: "Belo Horizonte",
-      text: "Estava com muita dificuldade no trabalho por causa da ansiedade. Com o acompanhamento da Dara, aprendi técnicas que uso no dia a dia e minha qualidade de vida melhorou muito.",
+      name: "A. M.",
+      age: `${new Date().getFullYear() - 1991} anos`,
+      location: "São Paulo",
+      text: "Uma Psicóloga humana, dedicada, boa ouvinte, que ajuda enfrentar medos insegurança, ansiedade, superar conflitos internos, autoconhecimento, desenvolver habilidades e autoconfiança, atingir objetivos, ter uma qualidade de vida e inteligência emocional. Excelente profissional.",
       rating: 5,
       issue: "Ansiedade no trabalho",
     },
@@ -55,7 +56,7 @@ export function TestimonialsSection() {
                 <div className="border-t pt-4">
                   <div className="font-semibold text-[#60452a]">{testimonial.name}</div>
                   <div className="text-sm text-[#7a5535]">
-                    {testimonial.age} • {testimonial.location}
+                    {testimonial.age} {`${testimonial.location ? ' • ' + testimonial.location : ""}`}
                   </div>
                   <div className="text-sm text-[#7a5535] mt-1 font-medium">Tratamento: {testimonial.issue}</div>
                 </div>
@@ -65,21 +66,22 @@ export function TestimonialsSection() {
         </div>
 
         <div className="text-center">
-          <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl max-w-4xl mx-auto">
+          <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-8 rounded-2xl max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-4">Você também pode construir uma vida livre do peso da ansiedade</h3>
             <p className="text-[#e5d9ce] mb-6">Cuidar da sua saúde mental é um passo que transforma. O seu momento é agora!</p>
             <Button
               onClick={() => {
+                sendGTMEvent({ event: 'conversion_testimonials' })
                 const whatsappNumber = "5511978493885"
                 const whatsappMessage = "Olá! Gostaria de conhecer mais sobre o acompanhamento psicológico."
                 const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
                 window.open(url, "_blank")
               }}
               size="lg"
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center gap-3 mx-auto"
+              className="bg-green-600 w-full sm:w-max hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center gap-3 mx-auto"
             >
               <MessageCircle className="w-5 h-5" />
-              Conversar pelo WhatsApp
+              Agendar pelo Whatsapp
             </Button>
             {/*          <div className="flex justify-center items-center gap-8 text-white">
               <div className="text-center">
@@ -91,7 +93,7 @@ export function TestimonialsSection() {
                 <div className="text-sm text-[#e5d9ce]">Taxa de melhora</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">6+</div>
+                <div className="text-3xl font-bold">{`${new Date().getFullYear() - 2019}+`}</div>
                 <div className="text-sm text-[#e5d9ce]">Anos de experiência</div>
               </div>
             </div> */}

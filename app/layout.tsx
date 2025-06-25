@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Nunito } from "next/font/google"
 import "./globals.css"
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const nunito = Nunito({ subsets: ["latin"] })
 
@@ -36,10 +37,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+
     <html lang="pt-BR">
       <head>
+       {/*  <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} /> */}
       </head>
       <body className={nunito.className}>{children}</body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS!} />
     </html>
   )
 }
