@@ -3,6 +3,8 @@ import type { Metadata } from "next"
 import { Nunito } from "next/font/google"
 import "./globals.css"
 import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleTagManager } from '@next/third-parties/google'
+
 
 const nunito = Nunito({ subsets: ["latin"] })
 
@@ -42,6 +44,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
+      <GoogleTagManager gtmId="GTM-NN967RVG" />
       <body className={nunito.className}>{children}</body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS!} />
     </html>
