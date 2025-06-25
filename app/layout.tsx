@@ -40,7 +40,7 @@ export default function RootLayout({
 
     <html lang="pt-BR">
       <head>
-       {/*  <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} /> */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className={nunito.className}>{children}</body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS!} />
