@@ -25,7 +25,7 @@ export function Footer() {
             </div>
             <p className="text-[#e5d9ce] text-sm leading-relaxed">
               Focada em ansiedade, oferecendo terapia online personalizada para mulheres que buscam uma
-              vida mais equilibrada e plena.
+              vida com menos ansiedade e mais leveza.
             </p>
           </div>
 
@@ -41,9 +41,9 @@ export function Footer() {
         </div>
 
         <div className="border-t border-[#7a5535] mt-8 pt-8 text-center">
-          <p className="text-[#e5d9ce] text-sm flex items-center justify-center gap-2">
+          {/*     <p className="text-[#e5d9ce] text-sm flex items-center justify-center gap-2">
             Feito com <Heart className="w-4 h-4 text-red-400" /> para ajudar mulheres a superarem a ansiedade
-          </p>
+          </p> */}
           <p className="text-[#e5d9ce] text-xs mt-2">
             © {new Date().getFullYear()} Psicóloga Dara Marques. Todos os direitos reservados. CRP 06/144499
           </p>
