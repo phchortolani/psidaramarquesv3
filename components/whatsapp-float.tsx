@@ -18,7 +18,7 @@ export function WhatsAppFloat() {
   }, [])
 
   const openWhatsApp = () => {
-    sendGAEvent({ event: 'conversion_btn_whatsapp' })
+    sendGAEvent('event', 'conversion_btn_whatsapp')
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
     window.open(url, "_blank")
   }

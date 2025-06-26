@@ -10,7 +10,7 @@ export function ContactSection() {
   const whatsappMessage = "Olá! Encontrei você pelo site e gostaria de agendar uma consulta."
 
   const openWhatsApp = () => {
-    sendGAEvent({ event: 'conversion_contact' })
+    sendGAEvent('event', 'conversion_contact')
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
     window.open(url, "_blank")
   }

@@ -109,7 +109,7 @@ export function AboutSection() {
         <div className="text-center mt-12">
           <Button
             onClick={() => {
-              sendGAEvent({ event: 'conversion_about' })
+            sendGAEvent('event', 'conversion_about')
               const whatsappNumber = "5511978493885"
               const whatsappMessage = "Olá! Encontrei você pelo site e gostaria de agendar uma consulta."
               const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
