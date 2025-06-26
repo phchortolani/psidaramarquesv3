@@ -1,6 +1,6 @@
 "use client"
 
-import { sendGTMEvent } from "@next/third-parties/google"
+import { sendGAEvent } from "@next/third-parties/google"
 import { MessageCircle } from "lucide-react"
 import { useState, useEffect } from "react"
 
@@ -18,7 +18,7 @@ export function WhatsAppFloat() {
   }, [])
 
   const openWhatsApp = () => {
-    sendGTMEvent({ event: 'conversion_btn_whatsapp' })
+    sendGAEvent({ event: 'conversion_btn_whatsapp' })
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
     window.open(url, "_blank")
   }

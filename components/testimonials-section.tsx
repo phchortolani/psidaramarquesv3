@@ -2,7 +2,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Star, Quote, MessageCircle } from "lucide-react"
 import { Button } from "./ui/button"
-import { sendGTMEvent } from "@next/third-parties/google"
+import { sendGAEvent } from "@next/third-parties/google"
 
 export function TestimonialsSection() {
   const testimonials = [
@@ -71,7 +71,7 @@ export function TestimonialsSection() {
             <p className="text-[#e5d9ce] mb-6">Cuidar da sua saúde mental é um passo que transforma. O seu momento é agora!</p>
             <Button
               onClick={() => {
-                sendGTMEvent({ event: 'conversion_testimonials' })
+                sendGAEvent({ event: 'conversion_testimonials' })
                 const whatsappNumber = "5511978493885"
                 const whatsappMessage = "Olá! Encontrei você pelo site e gostaria de agendar uma consulta."
                 const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
