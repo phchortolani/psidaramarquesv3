@@ -7,7 +7,7 @@ import { useState, useEffect } from "react"
 export function WhatsAppFloat() {
   const [isVisible, setIsVisible] = useState(false)
   const whatsappNumber = "5511978493885"
-  const whatsappMessage = "Olá! Gostaria de conhecer mais sobre o acompanhamento psicológico para ansiedade."
+  const whatsappMessage = "Olá! Encontrei você pelo site e gostaria de agendar uma consulta."
 
   useEffect(() => {
     const timer = setTimeout(() => {

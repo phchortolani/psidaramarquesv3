@@ -73,7 +73,7 @@ export function TestimonialsSection() {
               onClick={() => {
                 sendGTMEvent({ event: 'conversion_testimonials' })
                 const whatsappNumber = "5511978493885"
-                const whatsappMessage = "Olá! Gostaria de conhecer mais sobre o acompanhamento psicológico."
+                const whatsappMessage = "Olá! Encontrei você pelo site e gostaria de agendar uma consulta."
                 const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
                 window.open(url, "_blank")
               }}

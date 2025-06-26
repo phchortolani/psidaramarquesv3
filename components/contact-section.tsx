@@ -7,7 +7,7 @@ import { MessageCircle, Clock, Shield, Phone } from "lucide-react"
 
 export function ContactSection() {
   const whatsappNumber = "5511978493885"
-  const whatsappMessage = "Olá! Gostaria de conhecer mais sobre o acompanhamento psicológico para ansiedade."
+  const whatsappMessage = "Olá! Encontrei você pelo site e gostaria de agendar uma consulta."
 
   const openWhatsApp = () => {
     sendGTMEvent({ event: 'conversion_contact' })
